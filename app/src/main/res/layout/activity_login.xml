@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FF9800"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/ID"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/login"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:hint="Id" />
+
+        <EditText
+            android:id="@+id/PASSWORD"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/ID"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/login"
+            android:inputType="textWebPassword"
+            android:hint="Password"
+            android:paddingLeft="20dp" />
+
+        <Button
+            android:id="@+id/login"
+            android:textColor="#FFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/PASSWORD"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button"
+            android:text="Login"
+            android:onClick="Btn_click" />
+
+
+        <Button
+            android:id="@+id/Join"
+            android:textColor="#FFFF"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_below="@+id/login"
+            android:layout_alignRight="@id/nothing"
+            android:text="Join us"
+            android:onClick="Btn_click2"/>
+
+
+
+        <TextView
+            android:id="@+id/nothing"
+            android:textColor="#FFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:textSize="30sp"
+            android:text="|" />
+
+        <Button
+            android:id="@+id/home"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_alignLeft="@id/nothing"
+            android:layout_marginTop="11dp"
+            android:onClick="Btn_click3"
+            android:text="Home"
+            android:textColor="#FFFF" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
