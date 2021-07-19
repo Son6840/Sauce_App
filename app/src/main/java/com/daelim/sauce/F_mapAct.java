@@ -29,12 +29,14 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag_map, container, false);
+        //MapView 호출
         googlemap = (MapView) view.findViewById(R.id.map);
         googlemap.onCreate(savedInstanceState);
         googlemap.getMapAsync(this);
 
         return view;
     }
+    //이 메서드가 없으면 지도 출력 x
     @Override
     public void onStart() {
         super.onStart();
@@ -70,13 +72,13 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
     @Override
     public void onMapReady(GoogleMap googleMap) {
         //마커찍기(위도,경도)
-        LatLng solnae = new LatLng(35.869253, 127.129006);
+        LatLng Daelim = new LatLng(37.40387620799947, 126.93031303076037);
 
         //마커 옵션
         MarkerOptions marker = new MarkerOptions();
-        marker.position(solnae); //마커 위치
-        marker.title("솔내청소년수련관");
-        marker.snippet("전주시 덕진구 송천1동 동부대로 1079");
+        marker.position(Daelim); //마커 위치
+        marker.title("대림대학교");
+        marker.snippet("경기도 안양시 동안구 비산1동 임곡로 대림대학교");
 
         //맵에 마커표시, 인포윈도우 보여줌
         googleMap.addMarker(marker).showInfoWindow();
@@ -85,7 +87,7 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
         googleMap.setOnInfoWindowClickListener(this);
 
         //맵뷰 카메라위치, 줌 설정
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(solnae, 13));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Daelim, 13));
     }
 
     //인포윈도우 클릭 리스너
