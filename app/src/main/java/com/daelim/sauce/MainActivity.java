@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         bottomNavigationView = findViewById(R.id.bottomNavi);
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame,new F_mainAct()).commit();//첫 프레그먼트 화면세팅
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_map:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new F_mapAct()).commit();
+
                         break;
                     case R.id.action_coupon:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new F_couponAct()).commit();
