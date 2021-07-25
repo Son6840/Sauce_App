@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daelim.sauce">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!--위치정보 접근 권한요청-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--위치정보 접근 권한요청-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0"/>
 
         <activity android:name=".Splash">
             <intent-filter>
