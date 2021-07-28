@@ -90,6 +90,14 @@
             android:text="Home"
             android:textColor="#FFFF" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/nothing"
+            android:src="@drawable/kakao_login_medium_narrow"
+            android:id="@+id/login2"
+            />
     </RelativeLayout>
 
 

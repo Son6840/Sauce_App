@@ -21,6 +21,8 @@ public class Login extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
+        updateKakaoLoginUi();
+
 
         mID = (EditText) findViewById(R.id.ID);
         mPW = (EditText) findViewById(R.id.PASSWORD);
