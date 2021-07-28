@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daelim.sauce">
 
+
     <uses-permission android:name="android.permission.INTERNET" />// 인터넷 사용 권한 설정
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!--위치정보 접근 권한요청-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--위치정보 접근 권한요청-->
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -12,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce"
         android:name=".KakaoApplication">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0"/>
 
         <activity android:name=".Splash">
             <intent-filter>
