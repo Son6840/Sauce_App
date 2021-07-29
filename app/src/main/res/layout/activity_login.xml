@@ -40,17 +40,6 @@
             android:hint="Password"
             android:paddingLeft="20dp" />
 
-        <Button
-            android:id="@+id/login"
-            android:textColor="#FFFF"
-            android:layout_centerHorizontal="true"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/PASSWORD"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/button"
-            android:text="Login"
-            android:onClick="Btn_click" />
 
 
         <Button
@@ -60,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
-            android:layout_below="@+id/login"
+            android:layout_below="@+id/PASSWORD"
             android:layout_alignRight="@id/nothing"
             android:text="Join us"
             android:onClick="Btn_click2"/>
@@ -72,7 +61,7 @@
             android:textColor="#FFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login"
+            android:layout_below="@id/PASSWORD"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
             android:textSize="30sp"
@@ -83,7 +72,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/login"
+            android:layout_below="@+id/PASSWORD"
             android:layout_alignLeft="@id/nothing"
             android:layout_marginTop="11dp"
             android:onClick="Btn_click3"
@@ -98,6 +87,13 @@
             android:src="@drawable/kakao_login_medium_narrow"
             android:id="@+id/login2"
             />
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login2"
+            android:layout_centerHorizontal="true"
+            android:text="로그아웃"/>
     </RelativeLayout>
 
 
