@@ -20,12 +20,16 @@ import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 public class Login extends AppCompatActivity {
-    private static final String TAG = "Login";
+    private static final String TAG = "LoginActivity";
     EditText mID;
     EditText mPW;
+    Button join;
+    Button home;
+    TextView nothing;
     private View loginButton, logoutButton;
     private TextView nickName;
     private ImageView profileImage;
@@ -37,29 +41,52 @@ public class Login extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-        loginButton = findViewById(R.id.login2);
+        loginButton = findViewById(R.id.login);
         logoutButton = findViewById(R.id.logout);
-        //nickName = findViewById(R.id.nickname);
-       // profileImage = findViewById(R.id.profile);
+        nickName = findViewById(R.id.nickname);
+        profileImage = findViewById(R.id.profile);
+        nothing = findViewById(R.id.nothing);
 
-      /*  Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
+        Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if (oAuthToken != null) {
-                    // TBD
+
                 }
                 if (throwable != null) {
-                    // TBD
+
                 }
                 updateKakaoLoginUi();
                 return null;
             }
-        };*/
+        };
 
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(Login.this)) {
+                    UserApiClient.getInstance().loginWithKakaoTalk(Login.this, callback);
+                } else {
+                    UserApiClient.getInstance().loginWithKakaoAccount(Login.this, callback);
 
+                }
+            }
+        });
 
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+                        updateKakaoLoginUi();
+                        return null;
+                    }
+                });
 
+            }
+        });
 
 
         updateKakaoLoginUi();
@@ -68,8 +95,8 @@ public class Login extends AppCompatActivity {
         mID = (EditText) findViewById(R.id.ID);
         mPW = (EditText) findViewById(R.id.PASSWORD);
 
-        Button join = (Button) findViewById(R.id.Join);
-        Button home = (Button) findViewById(R.id.home);
+        join = (Button) findViewById(R.id.Join);
+        home = (Button) findViewById(R.id.home);
 
         join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +120,7 @@ public class Login extends AppCompatActivity {
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
-                if(user !=null){
+                if(user != null){
                     Log.i(TAG,"invoke: id=" + user.getId());
                     Log.i(TAG,"invoke: email=" + user.getKakaoAccount().getEmail());
                     Log.i(TAG,"invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
@@ -104,10 +131,14 @@ public class Login extends AppCompatActivity {
                    Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).into(profileImage);
                     loginButton.setVisibility(View.GONE);
                     logoutButton.setVisibility(View.VISIBLE);
+                    mID.setVisibility(View.GONE);
+                    mPW.setVisibility(View.GONE);
+
+
                 } else{
                     nickName.setText(null);
                     profileImage.setImageBitmap(null);
-                    logoutButton.setVisibility(View.VISIBLE);
+                    loginButton.setVisibility(View.VISIBLE);
                     logoutButton.setVisibility(View.GONE);
 
                 }
