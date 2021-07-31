@@ -102,6 +102,7 @@
             android:layout_below="@+id/nothing"
             android:src="@drawable/kakao_login_medium_narrow"
             android:id="@+id/login"
+            android:visibility="gone"
 
             />
         <Button
@@ -111,6 +112,7 @@
             android:layout_below="@+id/login"
             android:layout_centerHorizontal="true"
             android:text="로그아웃"
+            android:visibility="gone"
             />
     </RelativeLayout>
 
