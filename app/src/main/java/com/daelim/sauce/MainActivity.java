@@ -127,4 +127,3 @@ public class MainActivity extends AppCompatActivity {
     //------------------권한 설정 끝-----------------------
 
 }
-

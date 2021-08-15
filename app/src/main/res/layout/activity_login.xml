@@ -16,29 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <EditText
-            android:id="@+id/ID"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/login"
-            android:inputType="textPersonName"
-            android:paddingLeft="20dp"
-            android:hint="Id" />
 
-        <EditText
-            android:id="@+id/PASSWORD"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/ID"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/login"
-            android:inputType="textWebPassword"
-            android:hint="Password"
-            android:paddingLeft="20dp" />
 
         <ImageView
             android:layout_marginTop="20dp"
@@ -94,16 +72,39 @@
             android:onClick="Btn_click3"
             android:text="Home"
             android:textColor="#FFFF" />
-
-        <ImageView
+        <Button
+            android:id="@+id/Owner"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/home"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/nothing"
+            android:onClick="Btn_click3"
+            android:text="사장님이세요?"
+            android:textColor="#FFFF" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageView2"
             android:src="@drawable/kakao_login_medium_narrow"
             android:id="@+id/login"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/Owner"
+            android:src="@drawable/sns_naver"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            />
+
+
         <Button
             android:id="@+id/logout"
             android:layout_width="wrap_content"
@@ -111,6 +112,7 @@
             android:layout_below="@+id/login"
             android:layout_centerHorizontal="true"
             android:text="로그아웃"
+            android:visibility="gone"
             />
     </RelativeLayout>
 
