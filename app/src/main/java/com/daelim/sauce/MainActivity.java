@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     private void checkDangerousPermissions() {
         String[] permissions = {
                 android.Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -123,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
     }
     //------------------권한 설정 끝-----------------------
 
