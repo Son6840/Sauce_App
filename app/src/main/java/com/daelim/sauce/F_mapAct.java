@@ -101,7 +101,7 @@ private MapView googlemap = null;
         }
 
         @Override
-public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag_map, container, false);
         setLocationRequest();
 
@@ -114,10 +114,10 @@ public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup c
 
         return view;
         }
-//이 메서드가 없으면 지도 출력 x
+        //이 메서드가 없으면 지도 출력 x
 
-@Override
-public void onStart() {
+        @Override
+        public void onStart() {
         super.onStart();
         googlemap.onStart();
         Log.d(TAG, "onStart");
@@ -133,8 +133,8 @@ public void onStart() {
         }
         }
 
-@Override
-public void onStop () {
+        @Override
+        public void onStop () {
         super.onStop();
         googlemap.onStop();
         if (mFusedLocationClient != null) {
@@ -143,6 +143,7 @@ public void onStop () {
                 mFusedLocationClient.removeLocationUpdates(locationCallback);
         }
         }
+
         public String getCurrentAddress(LatLng latlng) {
 
                 //지오코더... GPS를 주소로 변환
@@ -177,6 +178,7 @@ public void onStop () {
                 }
 
         }
+
         public boolean checkLocationServicesStatus() {
                 LocationManager locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
 
@@ -213,22 +215,22 @@ public void onSaveInstanceState (@Nullable Bundle outState){
         googlemap.onSaveInstanceState(outState);
         }
 
-@Override
-public void onResume() {
+        @Override
+        public void onResume() {
         super.onResume();
         googlemap.onResume();
 }
 
 
-@Override
-public void onDestroy() {
+        @Override
+        public void onDestroy() {
         super.onDestroy();
         googlemap.onLowMemory();
         }
 
-//맵뷰 설정
-@Override
-public void onMapReady(GoogleMap googleMap) {
+        //맵뷰 설정
+        @Override
+        public void onMapReady(GoogleMap googleMap) {
         Log.d(TAG, "onMapReady: ");
         mMap = googleMap;
         setDefaultLocation(googleMap);
@@ -278,9 +280,8 @@ public void onMapReady(GoogleMap googleMap) {
 
         }
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
-        // 현재 오동작을 해서 주석처리
-
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+         //현재 오동작을 해서 주석처리
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
                 @Override
@@ -516,8 +517,8 @@ public void setDefaultLocation(GoogleMap googleMap){
         }
 
         //인포윈도우 클릭 리스너
-@Override
-public void onInfoWindowClick (Marker marker){
+        @Override
+        public void onInfoWindowClick (Marker marker){
 
         }
 
