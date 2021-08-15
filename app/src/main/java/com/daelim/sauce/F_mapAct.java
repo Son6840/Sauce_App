@@ -72,12 +72,14 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
     private static final int UPDATE_INTERVAL_MS = 1000;  // 1초
     private static final int FASTEST_UPDATE_INTERVAL_MS = 500; // 0.5초
 
-    // onRequestPermissionsResult에서 수신된 결과에서 ActivityCompat.requestPermissions를 사용한 퍼미션 요청을 구별하기 위해 사용됩니다.
-    private static final int PERMISSIONS_REQUEST_CODE = 100;
-    boolean needRequest = false;
+        private static final String TAG = "googlemap_example";
+        private static final int GPS_ENABLE_REQUEST_CODE = 2001;
+        private static final int UPDATE_INTERVAL_MS = 1000;  // 1초
+        private static final int FASTEST_UPDATE_INTERVAL_MS = 500; // 0.5초
 
-    // 앱을 실행하기 위해 필요한 퍼미션을 정의합니다.
-    String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};  // 외부 저장소
+        // onRequestPermissionsResult에서 수신된 결과에서 ActivityCompat.requestPermissions를 사용한 퍼미션 요청을 구별하기 위해 사용됩니다.
+        private static final int PERMISSIONS_REQUEST_CODE = 100;
+        boolean needRequest = false;
 
     Location mCurrentLocatiion;
     LatLng currentPosition;
@@ -133,8 +135,19 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
         }
     }
 
-    @Override
-    public void onStop () {
+        if (checkPermission()) {
+
+                Log.d(TAG, "onStart : call mFusedLocationClient.requestLocationUpdates");
+                mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+
+                if (mMap!=null)
+                        mMap.setMyLocationEnabled(true);
+
+        }
+        }
+
+@Override
+public void onStop () {
         super.onStop();
         googlemap.onStop();
         if (mFusedLocationClient != null) {
@@ -211,24 +224,24 @@ public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.O
     public void onSaveInstanceState (@Nullable Bundle outState){
         super.onSaveInstanceState(outState);
         googlemap.onSaveInstanceState(outState);
-    }
+        }
 
-    @Override
-    public void onResume() {
+@Override
+public void onResume() {
         super.onResume();
         googlemap.onResume();
-    }
+}
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         googlemap.onLowMemory();
-    }
+        }
 
-    //맵뷰 설정
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
+//맵뷰 설정
+@Override
+public void onMapReady(GoogleMap googleMap) {
         Log.d(TAG, "onMapReady: ");
         mMap = googleMap;
         setDefaultLocation(googleMap);
