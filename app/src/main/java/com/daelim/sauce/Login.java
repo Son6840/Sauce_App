@@ -2,6 +2,8 @@ package com.daelim.sauce;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -12,12 +14,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -25,14 +30,15 @@ import kotlin.jvm.functions.Function2;
 
 public class Login extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    EditText mID;
-    EditText mPW;
     Button join;
     Button home;
     TextView nothing;
     private View loginButton, logoutButton;
     private TextView nickName;
     private ImageView profileImage;
+    private ImageView naverlogin;
+    OAuthLogin mOAuthLoginModule;
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,7 @@ public class Login extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
+        naverlogin = findViewById(R.id.imageView2);//naver login
         loginButton = findViewById(R.id.login);
         logoutButton = findViewById(R.id.logout);
         nickName = findViewById(R.id.nickname);
@@ -60,6 +67,46 @@ public class Login extends AppCompatActivity {
                 return null;
             }
         };
+        naverlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOAuthLoginModule = OAuthLogin.getInstance();
+                mOAuthLoginModule.init(
+                        mContext
+                        , getString(R.string.naver_client_id)
+                        , getString(R.string.naver_client_secret)
+                        , getString(R.string.naver_client_name)
+                );
+                @SuppressLint("HandlerLeak")
+                OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
+                    @Override
+                    public void run(boolean success) {
+                        if (success) {
+                            String accessToken = mOAuthLoginModule.getAccessToken(mContext);
+                            String refreshToken = mOAuthLoginModule.getRefreshToken(mContext);
+                            long expiresAt = mOAuthLoginModule.getExpiresAt(mContext);
+                            String tokenType = mOAuthLoginModule.getTokenType(mContext);
+
+                            Log.i("LoginData", "accessToken : " + accessToken);
+                            Log.i("LoginData", "refreshToken : " + refreshToken);
+                            Log.i("LoginData", "expiresAt : " + expiresAt);
+                            Log.i("LoginData", "tokenType : " + tokenType);
+                        } else {
+                            String errorCode = mOAuthLoginModule
+                                    .getLastErrorCode(mContext).getCode();
+                            String errorDesc = mOAuthLoginModule.getLastErrorDesc(mContext);
+                            Toast.makeText(mContext, "errorCode:" + errorCode
+                                    + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    ;
+                };
+                mOAuthLoginModule.startOauthLoginActivity(Login.this, mOAuthLoginHandler);
+            }
+
+
+        });
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -92,8 +139,7 @@ public class Login extends AppCompatActivity {
         updateKakaoLoginUi();
 
 
-        mID = (EditText) findViewById(R.id.ID);
-        mPW = (EditText) findViewById(R.id.PASSWORD);
+
 
         join = (Button) findViewById(R.id.Join);
         home = (Button) findViewById(R.id.home);
@@ -120,31 +166,34 @@ public class Login extends AppCompatActivity {
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
-                if(user != null){
-                    Log.i(TAG,"invoke: id=" + user.getId());
-                    Log.i(TAG,"invoke: email=" + user.getKakaoAccount().getEmail());
-                    Log.i(TAG,"invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
-                    Log.i(TAG,"invoke: gender=" + user.getKakaoAccount().getGender());
-                    Log.i(TAG,"invoke: age=" + user.getKakaoAccount().getAgeRange());
 
-                    nickName.setText(user.getKakaoAccount().getProfile().getNickname());
-                   Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).into(profileImage);
-                    loginButton.setVisibility(View.GONE);
-                    logoutButton.setVisibility(View.VISIBLE);
-                    mID.setVisibility(View.GONE);
-                    mPW.setVisibility(View.GONE);
+                    if (user != null) {
+                        Log.i(TAG, "invoke: id=" + user.getId());
+                        Log.i(TAG, "invoke: email=" + user.getKakaoAccount().getEmail());
+                        Log.i(TAG, "invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
+                        Log.i(TAG, "invoke: gender=" + user.getKakaoAccount().getGender());
+                        Log.i(TAG, "invoke: age=" + user.getKakaoAccount().getAgeRange());
+
+                        nickName.setText(user.getKakaoAccount().getProfile().getNickname());
+                        Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).circleCrop().into(profileImage);
+                        loginButton.setVisibility(View.GONE);
+                        logoutButton.setVisibility(View.VISIBLE);
 
 
-                } else{
-                    nickName.setText(null);
-                    profileImage.setImageBitmap(null);
-                    loginButton.setVisibility(View.VISIBLE);
-                    logoutButton.setVisibility(View.GONE);
+                    } else {
+                        nickName.setText(null);
+                        profileImage.setImageBitmap(null);
+                        loginButton.setVisibility(View.VISIBLE);
+                        logoutButton.setVisibility(View.GONE);
 
-                }
-                return null;
+                    }
+                    return null;
+
+
             }
+
         });
     }
+
 
 }
