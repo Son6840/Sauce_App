@@ -210,7 +210,7 @@ private MapView googlemap = null;
 
 
         @Override
-public void onSaveInstanceState (@Nullable Bundle outState){
+        public void onSaveInstanceState (@Nullable Bundle outState){
         super.onSaveInstanceState(outState);
         googlemap.onSaveInstanceState(outState);
         }
