@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">sauce</string>
-    <string name="facebook_app_id">521541592462391</string>
-    <string name="fb_login_protocol_scheme">fb521541592462391</string>
 
     <string name="naver_client_id">rgtVrtutDmoV3yXX7RAa</string>
     <string name="naver_client_secret">93Z0uX8tgg</string>
