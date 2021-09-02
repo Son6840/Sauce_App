@@ -41,7 +41,7 @@ public class storeList extends Fragment {
                 .build();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        retrofitInterface.getBoxOffice(API_KEY, "20200319").enqueue(new Callback<Map<String, Object>>() {
+        retrofitInterface.getBoxOffice(API_KEY, "20210820").enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
 
