@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getHashKey();
-//        checkDangerousPermissions();
+
+      
 
 
 
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //
 //    }
-    //------------------권한 설정 끝-----------------------
+//    //------------------권한 설정 끝-----------------------
 
 }
 
