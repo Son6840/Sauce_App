@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getHashKey();
-//        checkDangerousPermissions();
+
+      
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame,new F_mainAct()).commit();//첫 프레그먼트 화면세팅
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //
 //    }
-    //------------------권한 설정 끝-----------------------
+//    //------------------권한 설정 끝-----------------------
 
 }
 

@@ -524,5 +524,3 @@ public void setDefaultLocation(GoogleMap googleMap){
 
 
 }
-
-

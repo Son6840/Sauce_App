@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/admin_login.xml" value="0.2064814814814815" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/button.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/ic_arrow_back.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/ic_arrow_forward.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/ic_refresh.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/login.xml" value="0.21354166666666666" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable-v24/owner.xml" value="0.1" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/admin_login.xml" value="0.21302083333333333" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/admin_login2.xml" value="0.2064814814814815" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.21666666666666667" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/kakao_login_medium_wide_2.xml" value="0.21574074074074073" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/mainlogin.xml" value="0.22870370370370371" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/mainlogin2.xml" value="0.20974358974358975" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/drawable/splash.xml" value="0.21302083333333333" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_calling_detail.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_fdetail.xml" value="0.19791666666666666" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_login.xml" value="0.16286727456940223" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_login_detail.xml" value="0.23731884057971014" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_login_detail2.xml" value="0.19157608695652173" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_main.xml" value="0.23143115942028986" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_qrscanner.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/activity_splash.xml" value="0.23143115942028986" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/frag_coupon.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/frag_main.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/frag_map.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/frag_mypage.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/frag_storelist.xml" value="0.20052083333333334" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/layout/mainlogin.xml" value="0.196875" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/menu/bottom_menu.xml" value="0.35572916666666665" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/menu/menu_main.xml" value="0.35572916666666665" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2064814814814815" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2064814814814815" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.2064814814814815" />
+        <entry key="..\:/Sauce_App-main/app/src/main/res/mipmap-anydpi-v26/ic_main_round.xml" value="0.2064814814814815" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
@@ -9,7 +55,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1802536231884058" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>
