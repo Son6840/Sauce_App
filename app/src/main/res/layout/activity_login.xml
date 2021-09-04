@@ -98,16 +98,12 @@
             android:textColor="#FF9B06" />
 
         <ImageView
-
-
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/nothing"
             android:src="@drawable/kakao_login_medium_wide"
             android:id="@+id/login"
-
             />
 
 
