@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="bannerImages">
+        <item>@drawable/ic_btnav_coupon</item>
+        <item>@drawable/common_full_open_on_phone</item>
+    </array>
+</resources>

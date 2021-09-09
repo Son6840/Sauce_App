@@ -3,25 +3,25 @@
     <item
         android:id="@+id/action_home"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_btnav_home"
         android:title="홈"/>
 
     <item
         android:id="@+id/action_map"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_map_24"
+        android:icon="@drawable/ic_btnav_map"
         android:title="지도"/>
 
     <item
         android:id="@+id/action_coupon"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_bookmark_24"
+        android:icon="@drawable/ic_btnav_coupon"
         android:title="쿠폰"/>
 
     <item
         android:id="@+id/action_mypage"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_btnav_mypage"
         android:title="내정보"/>
 
 
