@@ -2,6 +2,7 @@ package com.daelim.sauce;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,50 +10,65 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.MyViewHolder> {
-    private TypedArray mItems; //drawable 경로 데이터 저장 배열
-    private Context context;
 
-    public BannerAdapter(Context context, TypedArray mItems)
-    {
-        this.context = context;
-        this.mItems = mItems;
+    private List<SliderItems> sliderItemsList;
+    private ViewPager2 viewPager2;
+
+    BannerAdapter(List<SliderItems> sliderItems, ViewPager2 viewPager2) {
+        this.sliderItemsList = sliderItems;
+        this.viewPager2 = viewPager2;
     }
+
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_slider, parent, false);
-        return new MyViewHolder(view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.item_slider, parent, false
+        ));
     }
 
     //이미지 교체 함수
     @Override
-    public void onBindViewHolder(@NonNull BannerAdapter.MyViewHolder holder, int position)
-    {
-        int index = position % mItems.length();
-
-        if(index >= mItems.length())
-        {
-            index = 0;
+    public void onBindViewHolder(@NonNull BannerAdapter.MyViewHolder holder, int position) {
+        holder.setImage(sliderItemsList.get(position));
+        if (position == sliderItemsList.size() - 2) {
+            viewPager2.post(runnable);
         }
-        holder.imageView.setImageResource(mItems.getResourceId(index, -1));
     }
 
     @Override
     public int getItemCount() {
-        return Integer.MAX_VALUE; //이미지 슬라이드를 무한으로 할 수 있음
+        return sliderItemsList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
-        ImageView imageView;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imageView;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.bannerImage);
         }
+
+        void setImage(SliderItems sliderItems) {
+            imageView.setImageResource(sliderItems.getImage());
+        }
+
     }
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            sliderItemsList.addAll(sliderItemsList);
+            notifyDataSetChanged();
+        }
+    };
 }
+
+
