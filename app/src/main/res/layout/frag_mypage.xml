@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/group98"
         android:layout_marginTop="430dp"
-        android:layout_marginLeft="220dp"
+        android:layout_marginLeft="250dp"
         android:text="개인정보 수정"
         />
 
