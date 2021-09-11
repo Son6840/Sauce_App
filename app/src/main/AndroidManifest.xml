@@ -31,6 +31,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Login" />
         <activity android:name=".Calling_detail" />
+        <activity android:name=".Login_detail2"/>
+        <activity android:name=".Login_detail"/>
+        <activity android:name=".Login_detail3"/>
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
