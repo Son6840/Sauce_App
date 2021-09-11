@@ -53,8 +53,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 import static android.content.Context.LOCATION_SERVICE;
@@ -86,6 +94,10 @@ private MapView googlemap = null;
         private LocationRequest locationRequest;
         private Location location;
 
+        String baseUrl = "http://api.odcloud.kr/api";
+        String API_KEY = "v7id8pbiCwJ3BOi0wTU1To+FpDXNHgLa4nZUMTyssCRebL2tfI5BLAryoc9zW++ONN1NVj5rDya8l+mbov8QJg==";
+        Retrofit retrofit;
+
         private void setLocationRequest(){
                 locationRequest = new LocationRequest()
                         .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -105,8 +117,6 @@ private MapView googlemap = null;
         view = inflater.inflate(R.layout.frag_map, container, false);
         setLocationRequest();
 
-
-        
         //MapView 호출
         googlemap = (MapView) view.findViewById(R.id.map);
         googlemap.onCreate(savedInstanceState);
@@ -280,8 +290,7 @@ private MapView googlemap = null;
 
         }
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
-         //현재 오동작을 해서 주석처리
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
                 @Override
