@@ -18,10 +18,10 @@
 
         <ImageButton
             android:id="@+id/ID2"
-            android:layout_width="260dp"
+            android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="380dp"
             android:background="@drawable/group19"
             android:text="로그인"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="221dp"
             android:layout_below="@id/ID2"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/image2"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="472dp" />
@@ -58,7 +58,7 @@
             android:id="@+id/ID4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="200dp"
             android:background="@drawable/group31"
             android:layout_centerHorizontal="true"
             android:visibility="gone"/>

@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="550dp"
             android:src="@drawable/kakao_login_medium_wide"
             android:id="@+id/login"
             />
@@ -127,7 +127,7 @@
             android:layout_width="100dp"
             android:layout_height="20dp"
             android:layout_below="@+id/logout"
-            android:layout_marginTop="500dp"
+            android:layout_marginTop="600dp"
             android:background="@drawable/group99"
             android:layout_centerHorizontal="true"
             android:text="업주님이신가요?"
