@@ -3,14 +3,17 @@ package com.daelim.sauce;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Login_detail extends AppCompatActivity {
-   Button id2;
+    ImageButton id2, id3;
+    private View id4;
 
 
     @Override
@@ -20,22 +23,34 @@ public class Login_detail extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_detail);
 
-     id2 =(Button) findViewById(R.id.ID2);
+        id2 = (ImageButton) findViewById(R.id.ID2);
+        id3 = (ImageButton) findViewById(R.id.ID3);
+        id4 = (ImageButton) findViewById(R.id.ID4);
 
-
-     id2.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-             Intent i = new Intent(Login_detail.this, MainActivity.class);
-             startActivity(i);
-         }
-     });
-
-
-
+        id2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Login_detail.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+        id4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id4.setVisibility(View.GONE);
+            }
+        });
 
 
 
     }
-
+    public void click(View view){
+        if(view.getId() == R.id.ID3){
+            id4.setVisibility(View.VISIBLE);
+        }
+        else {
+            id4.setVisibility(View.GONE);
+        }
+        return;
+    }
 }

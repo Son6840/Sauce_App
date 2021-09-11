@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class Login extends AppCompatActivity {
     EditText mPW;
     Button join;
     Button home;
-    Button owner;
+    ImageButton owner;
     TextView nothing;
     private View loginButton, logoutButton;
     private TextView nickName;
@@ -158,7 +159,7 @@ public class Login extends AppCompatActivity {
 
         join = (Button) findViewById(R.id.Join);
         home = (Button) findViewById(R.id.home);
-        owner = (Button) findViewById(R.id.owner);
+        owner = (ImageButton) findViewById(R.id.owner);
 
         join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +218,7 @@ public class Login extends AppCompatActivity {
                     logoutButton.setVisibility(View.VISIBLE);
                     mID.setVisibility(View.GONE);
                     mPW.setVisibility(View.GONE);
+                    owner.setVisibility(View.GONE);
 
 
                 } else{
@@ -224,6 +226,7 @@ public class Login extends AppCompatActivity {
                     profileImage.setImageBitmap(null);
                     loginButton.setVisibility(View.VISIBLE);
                     logoutButton.setVisibility(View.GONE);
+                    owner.setVisibility(View.VISIBLE);
 
                 }
                 return null;
