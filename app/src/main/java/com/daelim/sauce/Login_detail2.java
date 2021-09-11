@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Login_detail2 extends AppCompatActivity {
-    Button id3;
+    ImageButton id3;
+
 
 
     @Override
@@ -20,7 +22,7 @@ public class Login_detail2 extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_detail2);
 
-        id3 =(Button) findViewById(R.id.ID3);
+        id3 =(ImageButton) findViewById(R.id.ID3);
 
 
         id3.setOnClickListener(new View.OnClickListener() {

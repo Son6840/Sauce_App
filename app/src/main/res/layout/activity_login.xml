@@ -43,7 +43,7 @@
             android:visibility="gone"/>
 
         <ImageView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="200dp"
             android:id="@+id/profile"
             android:layout_width="260px"
             android:layout_height="150px"
@@ -60,6 +60,7 @@
             android:layout_centerHorizontal="true"
 
             />
+
         <Button
             android:id="@+id/Join"
             android:textColor="#FF9B06"
@@ -70,7 +71,8 @@
             android:layout_below="@+id/nickname"
             android:layout_alignRight="@id/nothing"
             android:text="Join us"
-            android:onClick="Btn_click2"/>
+            android:onClick="Btn_click2"
+            android:visibility="gone"/>
 
 
 
@@ -95,13 +97,14 @@
             android:layout_marginTop="20dp"
             android:onClick="Btn_click3"
             android:text="Home"
-            android:textColor="#FF9B06" />
+            android:textColor="#FF9B06"
+            android:visibility="gone"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/nothing"
+            android:layout_marginTop="450dp"
             android:src="@drawable/kakao_login_medium_wide"
             android:id="@+id/login"
             />
@@ -109,25 +112,27 @@
 
 
 
-        <Button
+        <ImageButton
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/login"
+           android:layout_marginTop="300dp"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/group18"
             android:text="로그아웃"
             />
-        <Button
+        <ImageButton
             android:id="@+id/owner"
-            android:textColor="#FF9B06"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
             android:layout_below="@+id/logout"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/group99"
             android:layout_centerHorizontal="true"
             android:text="업주님이신가요?"
-            android:onClick="Btn_click3"/>
+            android:onClick="Btn_click3"
+            />
     </RelativeLayout>
 
 

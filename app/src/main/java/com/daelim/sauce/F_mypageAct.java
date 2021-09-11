@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 public class F_mypageAct extends Fragment {
     private View view;
-    private Button bt;
+    private ImageButton bt;
 
     @Nullable
 

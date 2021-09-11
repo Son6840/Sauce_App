@@ -27,19 +27,22 @@ public class storeList extends Fragment {
     private Button btn;
 
     String baseUrl = "http://www.kobis.or.kr";
-    String API_KEY = "aa4880b0b251bcfb0d376fcfc91363d5";
+    String API_KEY = "d07e74658ecb48b7b1e3afd00b459338";
     Retrofit retrofit;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag_storelist, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_recycleview);
+        return view;
+    }
+}
 
-        retrofit = new Retrofit.Builder()
+      /*  retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+        /*RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         retrofitInterface.getBoxOffice(API_KEY, "20200319").enqueue(new Callback<Map<String, Object>>() {
             @Override
@@ -69,4 +72,6 @@ public class storeList extends Fragment {
         return view;
     }
 }
+
+       */
 
