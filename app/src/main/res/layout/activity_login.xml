@@ -109,9 +109,7 @@
             android:id="@+id/login"
             />
 
-
-
-
+        
         <ImageButton
             android:id="@+id/logout"
             android:layout_width="wrap_content"
@@ -121,6 +119,7 @@
             android:background="@drawable/group18"
             android:text="로그아웃"
             />
+
         <ImageButton
             android:id="@+id/owner"
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -133,6 +132,7 @@
             android:text="업주님이신가요?"
             android:onClick="Btn_click3"
             />
+
     </RelativeLayout>
 
 

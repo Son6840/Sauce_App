@@ -34,15 +34,27 @@ public class storeList extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.frag_storelist, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_recycleview);
+
+        Retrofit();
+        // onCreate()..
+        btn = view.findViewById(R.id.rcv_show);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recyclerView.setAdapter(mAdapter);
+            }
+        });
+
         return view;
     }
-}
 
-      /*  retrofit = new Retrofit.Builder()
+
+    public void Retrofit() {
+        retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        /*RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         retrofitInterface.getBoxOffice(API_KEY, "20210820").enqueue(new Callback<Map<String, Object>>() {
             @Override
@@ -60,18 +72,13 @@ public class storeList extends Fragment {
             }
         });
 
-        // onCreate()..
-        btn = view.findViewById(R.id.rcv_show);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               recyclerView.setAdapter(mAdapter);
-            }
-        });
-
-        return view;
     }
 }
 
-       */
+
+
+
+
+
+
 

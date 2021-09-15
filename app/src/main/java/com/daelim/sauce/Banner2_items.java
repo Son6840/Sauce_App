@@ -1,8 +1,8 @@
 package com.daelim.sauce;
 
-public class SliderItems {
+public class Banner2_items {
     private int image;
-    SliderItems(int image){
+    Banner2_items(int image){
         this.image = image;
     }
     public int getImage(){
