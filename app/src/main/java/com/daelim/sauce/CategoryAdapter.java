@@ -1,5 +1,8 @@
 package com.daelim.sauce;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,15 +11,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     ArrayList<Category_items> cItems = new ArrayList<Category_items>();
 
-    public CategoryAdapter(ArrayList<Category_items> category_items) {
+
+
+
+
+    public CategoryAdapter(ArrayList<Category_items> category_items ) {
         this.cItems = category_items;
+
+
+
     }
 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,6 +62,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     // 여기서 subView를 setting 해줍니다.
     class ViewHolder extends RecyclerView.ViewHolder {
 
+
         private final TextView menuName;
         private final ImageView menuImage;
 
@@ -55,12 +71,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
             menuName = itemView.findViewById(R.id.menuName);
             menuImage = itemView.findViewById(R.id.menuIcon);
-
+            MainActivity mainActivity = (MainActivity)itemView.getContext();
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(itemView.getContext(), "메뉴이름은"+menuName.getText()+"입니다",Toast.LENGTH_SHORT).show();
 
+                    mainActivity.switchCategory(1);
                 }
             });
         }
@@ -70,6 +87,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             menuImage.setImageResource(category_items.getResId());
         }
     }
+
+
 
 }
 

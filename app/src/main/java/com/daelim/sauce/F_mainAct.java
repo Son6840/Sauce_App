@@ -1,5 +1,7 @@
 package com.daelim.sauce;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.GridView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +39,11 @@ public class F_mainAct extends Fragment {
 
     private RecyclerView categoryView ;
     private CategoryAdapter categoryAdapter ;
+    private FragmentActivity myContext;
+    Context mycontext;
     @Nullable
+
+
 
     @Override
     public View onCreateView(@NonNull  LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
@@ -155,7 +162,14 @@ public class F_mainAct extends Fragment {
 
 
 
+
+
+
+
     }
+
+
+
 
 
 
