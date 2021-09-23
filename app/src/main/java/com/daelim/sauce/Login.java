@@ -41,6 +41,8 @@ public class Login extends AppCompatActivity {
     String st;
    // private ImageView imageView2;
 
+
+
    // OAuthLogin mOAuthLoginModule;
     Context mContext;
     @Override
@@ -57,6 +59,10 @@ public class Login extends AppCompatActivity {
         nickName = findViewById(R.id.nickname);
         profileImage = findViewById(R.id.profile);
         nothing = findViewById(R.id.nothing);
+
+
+
+
 
        /* imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,5 +239,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 
 }

@@ -67,7 +67,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        }
+    public  void switchCategory(int index) {
+        switch (index) {
+            case 1:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
 
+        }
     }
 
 //    private void checkDangerousPermissions() {
