@@ -151,11 +151,19 @@ public class F_mainAct extends Fragment {
         ArrayList<Category_items> category_items = new ArrayList<>();
         CategoryAdapter categoryAdapter = new CategoryAdapter(category_items);
 
-        categoryAdapter.addItem(new Category_items("chicken",R.drawable.banner01));
-        categoryAdapter.addItem(new Category_items("pizza", R.drawable.button));
-        categoryAdapter.addItem(new Category_items("ham", R.drawable.group98));
+        categoryAdapter.addItem(new Category_items("치킨",R.drawable.ic_category_chicken));
+        categoryAdapter.addItem(new Category_items("피자", R.drawable.ic_category_pizza));
+        categoryAdapter.addItem(new Category_items("햄버거", R.drawable.ic_category_ham));
+        categoryAdapter.addItem(new Category_items("한식", R.drawable.ic_category_kor));
+        categoryAdapter.addItem(new Category_items("일식", R.drawable.ic_category_jp));
+        categoryAdapter.addItem(new Category_items("타코", R.drawable.ic_category_taco));
+        categoryAdapter.addItem(new Category_items("야식", R.drawable.ic_category_night));
+        categoryAdapter.addItem(new Category_items("카페", R.drawable.ic_category_cafe));
+        categoryAdapter.addItem(new Category_items("디저트", R.drawable.ic_category_desert));
+        categoryAdapter.addItem(new Category_items("간편식", R.drawable.ic_category_fast));
 
-        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),2);
+
+        RecyclerView.LayoutManager layoutManager=new GridLayoutManager(getActivity(),5);
         categoryView.setLayoutManager(layoutManager);
         categoryView.setAdapter(categoryAdapter);
     }
