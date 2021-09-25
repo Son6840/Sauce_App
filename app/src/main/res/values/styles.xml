@@ -1,0 +1,9 @@
+<resources>
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimary">#fec22f</item>
+    <item name="colorPrimaryDark">#fec22f</item>
+
+
+</style>
+    
+</resources>
