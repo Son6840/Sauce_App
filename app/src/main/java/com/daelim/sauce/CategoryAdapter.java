@@ -30,8 +30,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public CategoryAdapter(ArrayList<Category_items> category_items ) {
         this.cItems = category_items;
 
-
-
     }
 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -77,7 +75,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 public void onClick(View v) {
                     Toast.makeText(itemView.getContext(), "메뉴이름은"+menuName.getText()+"입니다",Toast.LENGTH_SHORT).show();
 
-                    mainActivity.switchCategory(1);
+                    mainActivity.switchCategory(menuName.getText().toString());
                 }
             });
         }

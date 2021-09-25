@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +26,11 @@ public class storeList extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private Button btn;
+    private Button nbtn;
 
     String baseUrl = "http://www.kobis.or.kr";
     String API_KEY = "d07e74658ecb48b7b1e3afd00b459338";
+
     Retrofit retrofit;
 
     @Override
@@ -45,18 +48,30 @@ public class storeList extends Fragment {
             }
         });
 
+        nbtn = view.findViewById(R.id.nbtn);
+        nbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), StoreMainActivity.class); startActivity(intent);
+
+
+
+            }
+        });
+
         return view;
     }
 
 
     public void Retrofit() {
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        retrofitInterface.getBoxOffice(API_KEY, "20210820").enqueue(new Callback<Map<String, Object>>() {
+        retrofitInterface.getBoxOffice(API_KEY, "20210916").enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
 
