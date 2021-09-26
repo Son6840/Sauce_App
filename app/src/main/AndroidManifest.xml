@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Sauce"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".StoreMainActivity"></activity>
+
+
 
         <activity android:name=".SearchActivity" />
 

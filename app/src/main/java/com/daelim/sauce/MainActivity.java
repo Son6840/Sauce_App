@@ -30,7 +30,6 @@ import java.security.NoSuchAlgorithmException;
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰0
 
-
     @Override
     protected void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +66,52 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        }
+    public  void switchCategory(String category_index) {
+        switch (category_index) {
+            case "치킨":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
 
+                break;
+
+            case "피자":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+
+                break;
+
+            case "햄버거":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "한식":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "일식":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "타코":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "야식":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "카페":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "디저트":
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+            case "간편식":
+               getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new storeList()).commit();
+                break;
+
+        }
     }
 
 //    private void checkDangerousPermissions() {
