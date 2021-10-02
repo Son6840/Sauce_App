@@ -16,11 +16,11 @@
         android:theme="@style/Theme.Sauce"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".StoreMainActivity"></activity>
+        <activity android:name=".activity.StoreMainActivity"></activity>
 
 
 
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".activity.SearchActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".Login" />
         <activity android:name=".Calling_detail" />
         <activity android:name=".Login_detail2" />

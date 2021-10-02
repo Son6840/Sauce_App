@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.daelim.sauce.activity.MainActivity;
 
 public class Login_detail2 extends AppCompatActivity {
     ImageButton id3;

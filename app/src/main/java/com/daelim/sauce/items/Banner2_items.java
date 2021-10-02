@@ -1,8 +1,8 @@
-package com.daelim.sauce;
+package com.daelim.sauce.items;
 
 public class Banner2_items {
     private int image;
-    Banner2_items(int image){
+    public Banner2_items(int image){
         this.image = image;
     }
     public int getImage(){
