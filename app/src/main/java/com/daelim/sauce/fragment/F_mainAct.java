@@ -1,32 +1,34 @@
-package com.daelim.sauce;
+package com.daelim.sauce.fragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.daelim.sauce.items.Banner1_items;
+import com.daelim.sauce.adapter.Banner2Adapter;
+import com.daelim.sauce.items.Banner2_items;
+import com.daelim.sauce.adapter.BannerAdapter;
+import com.daelim.sauce.adapter.CategoryAdapter;
+import com.daelim.sauce.items.Category_items;
+import com.daelim.sauce.R;
+import com.daelim.sauce.activity.SearchActivity;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 public class F_mainAct extends Fragment {
     private View view;
@@ -147,7 +149,7 @@ public class F_mainAct extends Fragment {
         } ;
 
     }
-    public void setCategory(){
+    private void setCategory(){
         categoryView = (RecyclerView)view.findViewById(R.id.category);
         ArrayList<Category_items> category_items = new ArrayList<>();
         CategoryAdapter categoryAdapter = new CategoryAdapter(category_items);

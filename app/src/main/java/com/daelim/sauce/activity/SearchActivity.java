@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.daelim.sauce.R;
 
 import java.util.ArrayList;
 import java.util.List;

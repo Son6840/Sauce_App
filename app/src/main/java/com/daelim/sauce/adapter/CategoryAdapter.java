@@ -1,8 +1,5 @@
-package com.daelim.sauce;
+package com.daelim.sauce.adapter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +8,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.daelim.sauce.activity.MainActivity;
+import com.daelim.sauce.R;
+import com.daelim.sauce.items.Category_items;
 
 import java.util.ArrayList;
 
@@ -51,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return cItems.size();
     }
 
-    void addItem(Category_items category_items) {
+    public void addItem(Category_items category_items) {
         // 외부에서 item을 추가시킬 함수입니다.
         cItems.add(category_items);
     }

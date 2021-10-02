@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.fragment;
 
 import android.Manifest;
 import android.app.Activity;
@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daelim.sauce.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
