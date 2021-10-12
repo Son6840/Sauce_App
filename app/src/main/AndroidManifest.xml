@@ -15,11 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.writeReviewActivity"
 
-        <activity android:name=".activity.StoreMainActivity"></activity>
-
-
-
+            ></activity>
+        <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
 
         <meta-data
