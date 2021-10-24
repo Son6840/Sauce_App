@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calling_detail">
+    tools:context=".activity.Calling_detail">
     <EditText
         android:id="@+id/phone_number_edit"
         android:layout_width="8dp"

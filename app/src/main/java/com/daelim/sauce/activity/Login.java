@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.daelim.sauce.activity.MainActivity;
+import com.daelim.sauce.R;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;

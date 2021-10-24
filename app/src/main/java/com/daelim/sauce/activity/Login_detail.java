@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
-import com.daelim.sauce.activity.MainActivity;
+import com.daelim.sauce.R;
 
 public class Login_detail extends AppCompatActivity {
     ImageButton id2, id3;

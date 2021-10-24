@@ -1,8 +1,10 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.daelim.sauce.R;
 
 public class Login_detail3 extends AppCompatActivity {
 

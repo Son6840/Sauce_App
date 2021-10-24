@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".KakaoApplication"
+        android:name=".activity.KakaoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,7 +25,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
 
-        <activity android:name=".Splash">
+        <activity android:name=".activity.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,11 +33,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".Login" />
-        <activity android:name=".Calling_detail" />
-        <activity android:name=".Login_detail2" />
-        <activity android:name=".Login_detail" />
-        <activity android:name=".Login_detail3" />
+        <activity android:name=".activity.Login" />
+        <activity android:name=".activity.Calling_detail" />
+        <activity android:name=".activity.Login_detail2" />
+        <activity android:name=".activity.Login_detail" />
+        <activity android:name=".activity.Login_detail3" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
