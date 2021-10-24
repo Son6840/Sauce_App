@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.daelim.sauce.adapter.MyAdapter;
+import com.daelim.sauce.R;
+import com.daelim.sauce.RetrofitInterface;
+import com.daelim.sauce.activity.StoreMainActivity;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -53,8 +58,6 @@ public class storeList extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), StoreMainActivity.class); startActivity(intent);
-
-
 
             }
         });

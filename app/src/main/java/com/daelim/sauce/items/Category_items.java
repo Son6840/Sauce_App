@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.items;
 
 public class Category_items {
     //카테고리 아이템 정보
