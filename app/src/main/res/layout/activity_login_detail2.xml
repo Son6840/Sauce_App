@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login_detail"
+    tools:context=".activity.Login_detail"
     android:background="@drawable/admin_login2">
 
     <ImageButton

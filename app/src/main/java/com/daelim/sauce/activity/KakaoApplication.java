@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import android.app.Application;
 
