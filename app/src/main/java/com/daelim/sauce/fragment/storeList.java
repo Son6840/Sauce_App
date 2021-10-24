@@ -27,6 +27,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class storeList extends Fragment {
+
     private View view;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -35,7 +36,6 @@ public class storeList extends Fragment {
 
     String baseUrl = "http://www.kobis.or.kr";
     String API_KEY = "d07e74658ecb48b7b1e3afd00b459338";
-
     Retrofit retrofit;
 
     @Override

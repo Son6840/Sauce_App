@@ -1,4 +1,4 @@
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import com.daelim.sauce.R;
 
 public class Splash extends AppCompatActivity {
 

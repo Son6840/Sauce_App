@@ -1,5 +1,5 @@
 
-package com.daelim.sauce;
+package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.daelim.sauce.R;
 
 public class Calling_detail extends AppCompatActivity {
 
