@@ -14,8 +14,8 @@
         android:gravity="center"
         android:textColor="#ffffff"
         android:textSize="16dp"
-        android:text="커스텀 다이얼로그"
-        android:background="#000000"/>
+        android:text="리뷰작성"
+        android:background="#fec22f"/>
 
     <View
         android:layout_width="match_parent"
