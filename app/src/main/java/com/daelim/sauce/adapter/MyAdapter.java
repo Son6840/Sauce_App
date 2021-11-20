@@ -56,9 +56,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public void setItem(Map<String, Object> item){
 
             //"rank", "movieNm", "openDt"은 Json파일에 저장되어 있던 key값
-            tvRank.setText(item.get("rank").toString());
-            tvMovieNm.setText(item.get("movieNm").toString());
-            tvOpenDt.setText(item.get("openDt").toString());
+            tvRank.setText(item.get("id").toString());
+            tvMovieNm.setText(item.get("store_name").toString());
+            tvOpenDt.setText(item.get("opening").toString());
 
         }
     }
