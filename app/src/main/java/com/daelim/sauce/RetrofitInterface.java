@@ -1,13 +1,15 @@
 package com.daelim.sauce;
 
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 
 
     import java.util.Map;
-
+import com.daelim.sauce.fragment.F_mypageAct;
     import retrofit2.Call;
     import retrofit2.http.GET;
-    import retrofit2.http.Query;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
     public interface RetrofitInterface {
         @GET("/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")
@@ -19,6 +21,10 @@ import retrofit2.http.GET;
                                         @Query("page") String page,
                                         @Query("perPage") String perPage
         );
+        @GET("/getuserinfo")
+        Call<F_mypageAct> getUserInfo(@Query("email") String email,
+                                              @Query("id") String id);
+
 
 
     }

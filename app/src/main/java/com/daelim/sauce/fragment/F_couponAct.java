@@ -1,9 +1,11 @@
 package com.daelim.sauce.fragment;
 
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,13 +15,30 @@ import com.daelim.sauce.R;
 
 public class F_couponAct extends Fragment {
     private View view;
+    private ImageButton bt;
 
     @Nullable
 
     @Override
-    public View onCreateView(@NonNull  LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.frag_coupon,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.frag_coupon, container, false);
+        bt = view.findViewById(R.id.update);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.main_frame,new storeList()).commit();//메뉴리스트프래그먼트 출력
+            }
+        });
         return view;
+
+    }
+
+}
+
+
+
+
+
 //        barcodeScannerView.decodeContinuous(new BarcodeCallback() {
 //            @Override
 //            public void barcodeResult(BarcodeResult result) {
@@ -87,7 +106,3 @@ public class F_couponAct extends Fragment {
 //            }
 //        });
 //
-    }
-
-}
-
