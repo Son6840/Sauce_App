@@ -81,7 +81,7 @@ public class storeList extends Fragment {
                 .build();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<storeInfo> storeListCall = retrofitInterface.getStoreList(id,store_name,address);
+        Call <storeInfo> storeListCall = retrofitInterface.getStoreList(id,store_name,address);
         storeListCall.enqueue(new Callback<storeInfo>() {
             @Override
             public void onResponse(Call<storeInfo> call, Response<storeInfo> response) {
