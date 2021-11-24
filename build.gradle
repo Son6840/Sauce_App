@@ -19,7 +19,9 @@ allprojects {
         google()
         mavenCentral()
         // Warning: this repository is going to shut down soon
-        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }// Android SDK 레파지토리 설정
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
+        maven { url "https://jitpack.io" }
+        // Android SDK 레파지토리 설정
     }
 }
 

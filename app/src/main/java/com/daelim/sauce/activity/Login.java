@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
     private TextView nickName;
     private ImageView profileImage;
     String st;
+    String str;
    // private ImageView imageView2;
 
 
@@ -210,7 +211,6 @@ public class Login extends AppCompatActivity {
                        startActivity(i);
                    }
                     Log.i(TAG,"invoke: email=" + user.getKakaoAccount().getEmail());
-
                     Log.i(TAG,"invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
                     Log.i(TAG,"invoke: gender=" + user.getKakaoAccount().getGender());
                     Log.i(TAG,"invoke: age=" + user.getKakaoAccount().getAgeRange());

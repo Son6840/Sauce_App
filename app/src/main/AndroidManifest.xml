@@ -2,22 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daelim.sauce">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 위치정보 접근 권한요청 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="true"/>
+
+
 
     <application
         android:name=".activity.KakaoApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_main"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.writeReviewActivity"
 
-            ></activity>
+        <activity android:name=".activity.MainActivity2"/>
+        <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
 
@@ -26,12 +28,13 @@
             android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
 
         <activity android:name=".activity.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Calling_detail" />
@@ -51,6 +54,7 @@
                     android:scheme="kakao68f5d7c8e5adbdb43b33e5fdfc5afb8d" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
