@@ -1,10 +1,12 @@
 package com.daelim.sauce.fragment;
 
+import android.content.Intent;
 import android.graphics.Camera;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.daelim.sauce.R;
+import com.daelim.sauce.activity.Login_detail;
+import com.daelim.sauce.activity.MainActivity;
+import com.daelim.sauce.activity.MainActivity2;
 
 public class F_couponAct extends Fragment {
     private View view;
@@ -26,7 +31,8 @@ public class F_couponAct extends Fragment {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.main_frame,new storeList()).commit();//메뉴리스트프래그먼트 출력
+                Intent i = new Intent(getActivity(), MainActivity2.class);
+                startActivity(i);
             }
         });
         return view;

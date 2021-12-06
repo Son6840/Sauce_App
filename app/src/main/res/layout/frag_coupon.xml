@@ -10,7 +10,6 @@
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/mypage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,11 +19,17 @@
             android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/group98"
-            android:layout_marginTop="430dp"
-            android:layout_marginLeft="250dp"
-            android:text="개인정보 수정"
+            android:background="@drawable/group100"
+            android:layout_marginTop="150dp"
+            android:layout_centerHorizontal="true"
+            android:text="큐알코드 스캔"
             />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:text="쿠폰확인" />
 
 
     </RelativeLayout>
