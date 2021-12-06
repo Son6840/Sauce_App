@@ -1,6 +1,8 @@
 package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +16,22 @@ public class StoreMainActivity extends AppCompatActivity {
     ImageView storeBanner;
     TextView storeName;
     Button review_btn ;
+    Button button ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_main);
+
+        button = findViewById(R.id.order_btn);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StoreMainActivity.this, Calling_detail.class);
+                startActivity(intent);
+            }
+        });
         setBanner();
 
         final TextView review_msg = (TextView) findViewById(R.id.review_msg);
@@ -44,6 +57,5 @@ public class StoreMainActivity extends AppCompatActivity {
         storeBanner = findViewById(R.id.storeBanner);
         storeBanner.setImageResource(R.drawable.banner01);
         storeName.setText("가게 이름");
-        }
     }
-
+}
