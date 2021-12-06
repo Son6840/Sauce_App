@@ -5,10 +5,12 @@
     <uses-feature
         android:name="android.hardware.Camera"
         android:required="true"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
 
     <application
+
+
         android:name=".activity.KakaoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_main"
@@ -16,7 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        >
+
+
+
 
         <activity android:name=".activity.MainActivity2"/>
         <activity android:name=".activity.writeReviewActivity" />
