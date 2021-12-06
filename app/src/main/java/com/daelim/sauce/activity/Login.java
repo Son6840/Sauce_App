@@ -37,11 +37,11 @@ public class Login extends AppCompatActivity {
     private ImageView profileImage;
     String st;
     String str;
-   // private ImageView imageView2;
+    // private ImageView imageView2;
 
 
 
-   // OAuthLogin mOAuthLoginModule;
+    // OAuthLogin mOAuthLoginModule;
     Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mContext = getApplicationContext();
 
-       // imageView2 = findViewById(R.id.imageView2);
+        // imageView2 = findViewById(R.id.imageView2);
         loginButton = findViewById(R.id.login);
         logoutButton = findViewById(R.id.logout);
         nickName = findViewById(R.id.nickname);
@@ -204,19 +204,27 @@ public class Login extends AppCompatActivity {
             public Unit invoke(User user, Throwable throwable) {
                 if(user != null){
                     Log.i(TAG,"invoke: id=" + user.getId());
-                    long num = user.getId();
-                    String str = String.valueOf(num);
-                   if(str.equals("1827975262")) {
-                       Intent i = new Intent(Login.this, Login_detail2.class);
-                       startActivity(i);
-                   }
+//                    long num = user.getId();
+//                    String str = String.valueOf(num);
+//                   if(str.equals("1827975262")) {
+//                       Intent i = new Intent(Login.this, Login_detail2.class);
+//                       startActivity(i);
+//                   }
                     Log.i(TAG,"invoke: email=" + user.getKakaoAccount().getEmail());
                     Log.i(TAG,"invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
                     Log.i(TAG,"invoke: gender=" + user.getKakaoAccount().getGender());
                     Log.i(TAG,"invoke: age=" + user.getKakaoAccount().getAgeRange());
 
 
-                   Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).into(profileImage);
+                    Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).into(profileImage);
+
+                    profileImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(Login.this, MainActivity.class);
+                            startActivity(i);
+                        }
+                    });
                     loginButton.setVisibility(View.GONE);
                     logoutButton.setVisibility(View.VISIBLE);
                     mID.setVisibility(View.GONE);

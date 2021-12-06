@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.daelim.sauce.fragment.F_mypageAct;
+import com.daelim.sauce.items.mypageinfo;
 import com.daelim.sauce.items.storeInfo;
 
 import retrofit2.Call;
@@ -30,8 +31,8 @@ public interface RetrofitInterface {
     );
 
     @GET("/getuserinfo")
-    Call<F_mypageAct> getUserInfo(@Query("email") String email,
-                                  @Query("id") String id);
+    Call<mypageinfo> getUserInfo(@Query("email") String email,
+                                 @Query("id") String id);
 
     @GET("/storelist")
     Call<List<storeInfo>> getStoreList(@Query("cate") String cate);
