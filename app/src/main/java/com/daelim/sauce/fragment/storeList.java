@@ -20,8 +20,11 @@ import com.daelim.sauce.activity.StoreMainActivity;
 import com.daelim.sauce.items.storeInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,13 +38,15 @@ public class storeList extends Fragment {
     private RecyclerView.Adapter mAdapter;
     private Button btn;
     private Button nbtn;
-
-    String baseUrl = "http://10.0.2.2:8080";
+//
+    private final static String baseUrl = "http://10.0.2.2:8080";
     Retrofit retrofit;
 
     private String id;
     private String store_name;
     private String address;
+
+    storeInfo storedata;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,7 +60,6 @@ public class storeList extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                recyclerView.setAdapter(mAdapter);
                 setStoreList();
             }
         });
@@ -79,23 +83,25 @@ public class storeList extends Fragment {
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<storeInfo> storeListCall = retrofitInterface.getStoreList(id,store_name,address);
-        storeListCall.enqueue(new Callback<storeInfo>() {
-            @Override
-            public void onResponse(Call<storeInfo> call, Response<storeInfo> response) {
-                String getted_id = response.body().getId();
-                String getted_store_name = response.body().getStore_name();
-                String getted_address = response.body().getAddress();
-                Log.e("getStoreList()", "아이디 : " + getted_id + ", 서버에서 받아온 이름 : " + getted_store_name + "주소 :" + getted_address);
-            }
+        Call<List<storeInfo>> callinfo = retrofitInterface.getStoreList("E");
+            callinfo.enqueue(new Callback<List<storeInfo>>() {
 
-            @Override
-            public void onFailure(Call<storeInfo> call, Throwable t) {
-                Log.e("error","err");
-            }
+                @Override
+                public void onResponse(Call<List<storeInfo>> call, Response<List<storeInfo>> response) {
+                    Log.e("E", storedata.toString());
+                }
+
+                @Override
+                public void onFailure(Call<List<storeInfo>> call, Throwable t) {
+                    Log.e("E", t.toString());
+                }
+
         });
+
 
 //        retrofitInterface.getStoreList().enqueue(new Callback<Map<String, Object>>() {
 //            @Override
@@ -114,6 +120,8 @@ public class storeList extends Fragment {
 //        });
 
     }
+
+
 }
 
 

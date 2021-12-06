@@ -2,9 +2,14 @@ package com.daelim.sauce.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -13,6 +18,8 @@ import android.widget.TextView;
 
 import com.daelim.sauce.R;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +31,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
 
         editSearch = (EditText) findViewById(R.id.search_bar);
         editSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -45,4 +53,6 @@ public class SearchActivity extends AppCompatActivity {
 
 
     }
+
+
 }
