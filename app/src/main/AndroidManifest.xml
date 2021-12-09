@@ -6,6 +6,9 @@
         android:name="android.hardware.Camera"
         android:required="true"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 
 
     <application
@@ -24,7 +27,13 @@
 
 
 
-        <activity android:name=".activity.MainActivity2"/>
+        <activity android:name=".activity.MainActivity2">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
@@ -33,13 +42,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
 
-        <activity android:name=".activity.Splash">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".activity.Splash"/>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
 
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Login" />
@@ -60,6 +64,17 @@
                     android:scheme="kakao68f5d7c8e5adbdb43b33e5fdfc5afb8d" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!-- 파일경로 xml 생성-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
 
     </application>
 
