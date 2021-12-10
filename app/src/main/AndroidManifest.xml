@@ -3,7 +3,7 @@
     package="com.daelim.sauce">
 
     <uses-feature
-        android:name="android.hardware.Camera"
+        android:name="android.hardware.Camera2"
         android:required="true"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -22,18 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sauce"
         android:usesCleartextTraffic="true"
-        >
+        android:requestLegacyExternalStorage="true">
 
 
 
 
-        <activity android:name=".activity.MainActivity2">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+
+        <activity android:name=".activity.MainActivity2"/>
+
         <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
@@ -42,7 +39,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
 
-        <activity android:name=".activity.Splash"/>
+        <activity android:name=".activity.Splash">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
 
 
         <activity android:name=".activity.MainActivity" />
