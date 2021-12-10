@@ -1,8 +1,12 @@
 package com.daelim.sauce.fragment;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Camera;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,15 +35,27 @@ public class F_couponAct extends Fragment {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), MainActivity2.class);
-                startActivity(i);
+                Intent i = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                try {
+                    PackageManager pm = getContext().getPackageManager();
+                    final ResolveInfo mInfo = pm.resolveActivity(i, 0);
+
+                    Intent intent = new Intent();
+                    intent.setComponent(new ComponentName(mInfo.activityInfo.packageName, mInfo.activityInfo.name));
+                    intent.setAction(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.i("TAG", "Unabel to launch camera:" + e);
+                }
             }
+
+
         });
-        return view;
 
-    }
-
+    return view;}
 }
+
 
 
 
