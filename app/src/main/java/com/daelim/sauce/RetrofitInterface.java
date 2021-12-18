@@ -32,8 +32,9 @@ public interface RetrofitInterface {
 
     @GET("/getuserinfo")
     Call<mypageinfo> getUserInfo(@Query("email") String email,
-                                 @Query("id") String id);
-
+                                 @Query("id") String id,
+                                 @Query("phonenumber") String pn,
+                                @Query("nickname") String nk);
     @GET("/storelist")
     Call<List<storeInfo>> getStoreList(@Query("cate") String cate);
 

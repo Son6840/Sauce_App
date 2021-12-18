@@ -40,6 +40,8 @@ public class F_mypageAct extends Fragment {
     String baseUrl = "http://10.0.2.2:8080";
     private String email;
     private String id;
+    private String pn;
+    private String nk;
 
     @Nullable
 
@@ -84,7 +86,7 @@ public class F_mypageAct extends Fragment {
 
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<mypageinfo> userListCall = retrofitInterface.getUserInfo(email, id);
+        Call<mypageinfo> userListCall = retrofitInterface.getUserInfo(email, id, pn, nk );
         userListCall.enqueue(new Callback<mypageinfo>() {
 
 
