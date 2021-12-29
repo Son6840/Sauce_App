@@ -43,6 +43,9 @@ public interface RetrofitInterface {
     Call<Message> sendrev(@Field("userid") String userid,
                           @Field("storeid") String storeid,
                           @Field("comment") String comment);
-
+    @POST("/updateuser")
+    Call<Message> sendmod(@Field("email") String email,
+                          @Field("name") String id,
+                          @Field("birth") String birth);
 
 }

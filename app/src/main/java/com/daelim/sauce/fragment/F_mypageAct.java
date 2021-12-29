@@ -80,18 +80,23 @@ public class F_mypageAct extends Fragment {
     public void getUserinfo() {
 
         retrofit = new Retrofit.Builder()
+                // baseUrl을 적어서 초기화
                 .baseUrl(baseUrl)
+                // 데이터를 파싱할 Converter 제공
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         Call<mypageinfo> userListCall = retrofitInterface.getUserInfo(email, id, pn, nk );
+        // enqueue 비동기 방식
         userListCall.enqueue(new Callback<mypageinfo>() {
 
 
             @Override
             public void onResponse(Call<mypageinfo> call, Response<mypageinfo> response) {
+                // 통신에 성공한경우
+                // userid,email,phonenumber,nickname을 받아와서 화면에 보여준다
                 String get_userid = "1827975262";
                 String get_email = "jdonghun45@gmail.com";
                 String get_phonenumber = "01048903506";
@@ -112,6 +117,7 @@ public class F_mypageAct extends Fragment {
 
             @Override
             public void onFailure(Call<mypageinfo> call, Throwable t) {
+                // 통신에 실패한 경우
                 Log.e("error", "err");
 
             }

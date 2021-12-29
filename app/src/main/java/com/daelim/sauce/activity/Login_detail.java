@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 
 import com.daelim.sauce.R;
-
+//업주 로그인 액티비티
 public class Login_detail extends AppCompatActivity {
     ImageButton id2, id3;
     private View id4;
@@ -43,6 +43,7 @@ public class Login_detail extends AppCompatActivity {
 
 
     }
+    // 버튼클릭시 문구 보이게 설정
     public void click(View view){
         if(view.getId() == R.id.ID3){
             id4.setVisibility(View.VISIBLE);

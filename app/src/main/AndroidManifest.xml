@@ -25,12 +25,6 @@
         android:requestLegacyExternalStorage="true">
 
 
-
-
-
-
-        <activity android:name=".activity.MainActivity2"/>
-
         <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
@@ -52,9 +46,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Calling_detail" />
-        <activity android:name=".activity.Login_detail2" />
         <activity android:name=".activity.Login_detail" />
-        <activity android:name=".activity.Login_detail3" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
