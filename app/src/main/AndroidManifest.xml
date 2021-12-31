@@ -31,7 +31,8 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
+            android:value="" />
+        <!-- 구글 지도 키 값 -->
 
         <activity android:name=".activity.Splash">
         <intent-filter>
@@ -57,7 +58,8 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakao68f5d7c8e5adbdb43b33e5fdfc5afb8d" />
+                    android:scheme="" />
+                    <!-- key 값 -->
             </intent-filter>
         </activity>
 

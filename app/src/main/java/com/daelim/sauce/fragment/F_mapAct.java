@@ -96,7 +96,8 @@ private MapView googlemap = null;
         private Location location;
 
         String baseUrl = "http://api.odcloud.kr/api";
-        String API_KEY = "v7id8pbiCwJ3BOi0wTU1To+FpDXNHgLa4nZUMTyssCRebL2tfI5BLAryoc9zW++ONN1NVj5rDya8l+mbov8QJg==";
+        //구글 라이선스
+        String API_KEY = "";
         Retrofit retrofit;
 
         private void setLocationRequest(){
