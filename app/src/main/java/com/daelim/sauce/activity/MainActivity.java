@@ -16,6 +16,7 @@ import com.daelim.sauce.fragment.F_mypageAct;
 import com.daelim.sauce.fragment.storeList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+//손
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰0
 

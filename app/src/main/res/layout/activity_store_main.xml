@@ -34,7 +34,7 @@
 
         </LinearLayout>
 
-        <View
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/story"
             android:layout_width="match_parent"
             android:layout_height="100dp"

@@ -3,6 +3,7 @@ package com.daelim.sauce.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,13 +43,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        protected TextView tvRank, tvMovieNm, tvOpenDt;
+        protected TextView storeName;
+        protected ImageView storeImg;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            tvRank=itemView.findViewById(R.id.tv_rank);
-            tvMovieNm=itemView.findViewById(R.id.tv_movieNm);
-            tvOpenDt=itemView.findViewById(R.id.tv_openDt);
+            storeImg=itemView.findViewById(R.id.storeImg);
+            storeName=itemView.findViewById(R.id.storeName);
+
 
         }
 
@@ -56,9 +58,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public void setItem(Map<String, Object> item){
 
             //"rank", "movieNm", "openDt"은 Json파일에 저장되어 있던 key값
-            tvRank.setText(item.get("id").toString());
-            tvMovieNm.setText(item.get("store_name").toString());
-            tvOpenDt.setText(item.get("opening").toString());
+            storeName.setText(item.get("id").toString());
+
 
         }
     }
