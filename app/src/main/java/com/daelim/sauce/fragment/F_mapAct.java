@@ -70,8 +70,9 @@ import static android.content.Context.LOCATION_SERVICE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener, ActivityCompat.OnRequestPermissionsResultCallback{
-private View view;
-private MapView googlemap = null;
+
+        private View view;
+        private MapView googlemap = null;
 
         private GoogleMap mMap;
         private Marker currentMarker = null;
@@ -95,9 +96,6 @@ private MapView googlemap = null;
         private LocationRequest locationRequest;
         private Location location;
 
-        String baseUrl = "http://api.odcloud.kr/api";
-        String API_KEY = "v7id8pbiCwJ3BOi0wTU1To+FpDXNHgLa4nZUMTyssCRebL2tfI5BLAryoc9zW++ONN1NVj5rDya8l+mbov8QJg==";
-        Retrofit retrofit;
 
         private void setLocationRequest(){
                 locationRequest = new LocationRequest()

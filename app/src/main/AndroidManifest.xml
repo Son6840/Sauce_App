@@ -5,6 +5,8 @@
     <uses-feature
         android:name="android.hardware.Camera2"
         android:required="true"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -30,7 +32,6 @@
 
 
         <activity android:name=".activity.MainActivity2"/>
-
         <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />

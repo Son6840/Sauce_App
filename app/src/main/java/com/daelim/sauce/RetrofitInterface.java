@@ -36,7 +36,7 @@ public interface RetrofitInterface {
                                  @Query("phonenumber") String pn,
                                 @Query("nickname") String nk);
     @GET("/storelist")
-    Call<List<storeInfo>> getStoreList(@Query("cate") String cate);
+    Call<storeInfo> getStoreList(@Query("cate") String cate);
 
     @FormUrlEncoded
     @POST("/add/review")

@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,11 @@ import com.daelim.sauce.adapter.MyAdapter;
 import com.daelim.sauce.R;
 import com.daelim.sauce.RetrofitInterface;
 import com.daelim.sauce.activity.StoreMainActivity;
+import com.daelim.sauce.items.storeDATA;
 import com.daelim.sauce.items.storeInfo;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +35,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class storeList extends Fragment {
-
+    public static Context context ;
     private View view;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -46,7 +52,8 @@ public class storeList extends Fragment {
     private String store_name;
     private String address;
 
-    storeInfo storedata;
+    storeInfo storeInfo ;
+    storeDATA storeDATA = new storeDATA();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -81,26 +88,27 @@ public class storeList extends Fragment {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<List<storeInfo>> callinfo = retrofitInterface.getStoreList("E");
-            callinfo.enqueue(new Callback<List<storeInfo>>() {
+        Call<storeInfo> callinfo = retrofitInterface.getStoreList("E");
+            callinfo.enqueue(new Callback<storeInfo>() {
+
 
                 @Override
-                public void onResponse(Call<List<storeInfo>> call, Response<List<storeInfo>> response) {
-                    Log.e("E", storedata.toString());
+                public void onResponse(Call<storeInfo> call, Response<storeInfo> response) {
+                    Log.e("sucess", storeInfo.toget());
+
                 }
 
                 @Override
-                public void onFailure(Call<List<storeInfo>> call, Throwable t) {
-                    Log.e("E", t.toString());
+                public void onFailure(Call<storeInfo> call, Throwable t) {
+                    Log.e("err",t.toString());
                 }
-
-        });
+            });
 
 
 //        retrofitInterface.getStoreList().enqueue(new Callback<Map<String, Object>>() {
