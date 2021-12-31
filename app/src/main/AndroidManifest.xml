@@ -28,17 +28,14 @@
 
 
 
-
-
-
-        <activity android:name=".activity.MainActivity2"/>
         <activity android:name=".activity.writeReviewActivity" />
         <activity android:name=".activity.StoreMainActivity" />
         <activity android:name=".activity.SearchActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAYdcKIpoxJ_fHLtLIW7C1wWtSLpvlP3d0" />
+            android:value="" />
+        <!-- api key-->
 
         <activity android:name=".activity.Splash">
         <intent-filter>
@@ -53,9 +50,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Calling_detail" />
-        <activity android:name=".activity.Login_detail2" />
         <activity android:name=".activity.Login_detail" />
-        <activity android:name=".activity.Login_detail3" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -66,7 +61,7 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakao68f5d7c8e5adbdb43b33e5fdfc5afb8d" />
+                    android:scheme="" />
             </intent-filter>
         </activity>
 

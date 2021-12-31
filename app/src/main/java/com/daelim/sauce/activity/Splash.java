@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import com.daelim.sauce.R;
-
+//스플래쉬 액티비티
 public class Splash extends AppCompatActivity {
 
     @Override
@@ -17,7 +17,7 @@ public class Splash extends AppCompatActivity {
        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-
+        // 핸들러 객체를 사용하여 3초 뒤에 로그인 화면이 보이도록 설정
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

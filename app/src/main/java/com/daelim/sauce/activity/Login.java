@@ -23,7 +23,7 @@ import com.kakao.sdk.user.model.User;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
-
+//카카오 로그인 액티비티
 public class Login extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     EditText mID;
@@ -131,6 +131,9 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 웹페이지를 통해서 연결하면 되는데 동일하게 콜백을 받으면 됩니다.
+                // 콜백을 동일하게 받기 때문에 별도의 콜백 객체로 뽑아냄
+                // 양쪽 모두 파라메타로 전달
                 if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(Login.this)) {
                     UserApiClient.getInstance().loginWithKakaoTalk(Login.this, callback);
                 } else {
@@ -197,11 +200,15 @@ public class Login extends AppCompatActivity {
 
 
     }
-
+// updateKakaoLoginUi() 메소드를 만들어서 이것을 호출
+// 메소드 안에서는 사용자가 카카오톡 계정으로 로그인이 되어있는 상태 확인
     private void updateKakaoLoginUi() {
+        //UserApiClient 클라이언트 제공 내 계정정보 얻어 오고 파라메터에서는 new function2 객체를 파라메타로 전달
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
+            // invoke 라는 메소드를 콜백으로 호출
             public Unit invoke(User user, Throwable throwable) {
+                // user가 null인지 아닌지 판단하면 로그인 상태 여부 판단가능
                 if(user != null){
                     Log.i(TAG,"invoke: id=" + user.getId());
 //                    long num = user.getId();
@@ -214,8 +221,12 @@ public class Login extends AppCompatActivity {
                     Log.i(TAG,"invoke: nickname=" + user.getKakaoAccount().getProfile().getNickname());
                     Log.i(TAG,"invoke: gender=" + user.getKakaoAccount().getGender());
                     Log.i(TAG,"invoke: age=" + user.getKakaoAccount().getAgeRange());
-
-
+                    // profileImage 위한 클래스 변수를 만들고
+                    //로그인 버튼과 로그아웃 프로필 이미지를 불러온다.
+                    // glide 이미지로딩 라이브러리
+                    // 토큰 전달 로그인 성공 토큰 미전달시 로그인 실패
+                    // 토큰이 널이 아니면 로그인 되었을때 처리하면 되고
+                    // 결과가 오류가 있다면 throwable이 null이 아니기 때문이다
                     Glide.with(profileImage).load(user.getKakaoAccount().getProfile().getThumbnailImageUrl()).into(profileImage);
 
                     profileImage.setOnClickListener(new View.OnClickListener() {
@@ -225,7 +236,10 @@ public class Login extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
+                    // 버튼을 숨기기 위해서 loginbutton, logoutbutton을 클래스 멤버로 생성하고
+                    // 로그인 버튼에 visibility를 화면에서 사라지게 만들고
                     loginButton.setVisibility(View.GONE);
+                    // 로그아웃버튼을 visible로 나타나게 만든다
                     logoutButton.setVisibility(View.VISIBLE);
                     mID.setVisibility(View.GONE);
                     mPW.setVisibility(View.GONE);

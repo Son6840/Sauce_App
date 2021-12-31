@@ -4,13 +4,11 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.Camera;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -18,10 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.daelim.sauce.R;
-import com.daelim.sauce.activity.Login_detail;
-import com.daelim.sauce.activity.MainActivity;
-import com.daelim.sauce.activity.MainActivity2;
-
+// 기본 카메라 앱 열기
 public class F_couponAct extends Fragment {
     private View view;
     private ImageButton bt;
@@ -37,10 +32,12 @@ public class F_couponAct extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 try {
+                    // 패키지 관리자 인스턴스 취득
                     PackageManager pm = getContext().getPackageManager();
                     final ResolveInfo mInfo = pm.resolveActivity(i, 0);
 
                     Intent intent = new Intent();
+                    // 앱 내부에서 설치되어었는 다른 앱을 사용할때 사용
                     intent.setComponent(new ComponentName(mInfo.activityInfo.packageName, mInfo.activityInfo.name));
                     intent.setAction(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_LAUNCHER);
