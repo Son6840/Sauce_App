@@ -4,7 +4,7 @@
 Sauce 프로젝트의 App(사용자 부분)
 
 멤버 : [Son](https://github.com/Son6840),
-      [DHJ](https://github.com/DonghunJeong95),
+      [Hun](https://github.com/DonghunJeong95),
       [Me](https://github.com/SohyeonP)
 
       
