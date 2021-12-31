@@ -16,7 +16,7 @@ import com.daelim.sauce.items.Category_items;
 
 import java.util.ArrayList;
 
-
+// 카테고리를 구현하기 위한 어뎁터
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     ArrayList<Category_items> cItems = new ArrayList<Category_items>();
 

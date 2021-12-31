@@ -14,6 +14,7 @@ import com.daelim.sauce.R;
 import java.util.ArrayList;
 import java.util.Map;
 
+//StoreList 를 뿌려주기 위한 어댑터
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private ArrayList<Map<String, Object>> items = new ArrayList<Map<String, Object>>();

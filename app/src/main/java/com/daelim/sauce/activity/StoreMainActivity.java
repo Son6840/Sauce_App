@@ -23,7 +23,7 @@ import com.kakao.sdk.story.model.Story;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//
 public class StoreMainActivity extends AppCompatActivity {
 
     ImageView storeBanner;
@@ -57,11 +57,11 @@ public class StoreMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // 커스텀 다이얼로그를 생성한다. 사용자가 만든 클래스이다.
+                // 커스텀 다이얼로그를 생성
                 writeReviewActivity writeReviewActivity = new writeReviewActivity(StoreMainActivity.this);
 
-                // 커스텀 다이얼로그를 호출한다.
-                // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
+                // 커스텀 다이얼로그를 호출
+                // 커스텀 다이얼로그의 결과를 출력할 review_msg를 매개변수로 같이 넘겨준다.
                 writeReviewActivity.callFunction(review_msg);
 
             }

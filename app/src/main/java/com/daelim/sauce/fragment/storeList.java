@@ -36,7 +36,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-
+// Retrofit을 이용한 스토어리스트 구현
 public class storeList extends Fragment {
     public static Context context ;
     private View view;

@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+// 배너를 구현하기 위한 어뎁터
 public class Banner2Adapter extends RecyclerView.Adapter<Banner2Adapter.MyViewHolder> {
     private List<Banner2_items> banner2itemsList;
     private ViewPager2 viewPager2;
