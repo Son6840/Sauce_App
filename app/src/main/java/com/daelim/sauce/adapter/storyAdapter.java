@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Map;
-
+//Story를 구현하기위한 어댑터
 public class storyAdapter extends RecyclerView.Adapter<storyAdapter.ViewHolder> {
 
 
