@@ -70,8 +70,9 @@ import static android.content.Context.LOCATION_SERVICE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class F_mapAct extends Fragment implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener, ActivityCompat.OnRequestPermissionsResultCallback{
-private View view;
-private MapView googlemap = null;
+
+        private View view;
+        private MapView googlemap = null;
 
         private GoogleMap mMap;
         private Marker currentMarker = null;
@@ -81,23 +82,20 @@ private MapView googlemap = null;
         private static final int UPDATE_INTERVAL_MS = 1000;  // 1초
         private static final int FASTEST_UPDATE_INTERVAL_MS = 500; // 0.5초
 
-        // onRequestPermissionsResult에서 수신된 결과에서 ActivityCompat.requestPermissions를 사용한 퍼미션 요청을 구별하기 위해 사용됩니다.
+        // onRequestPermissionsResult에서 수신된 결과에서 ActivityCompat.requestPermissions를 사용한 퍼미션 요청을 구별하기 위해 사용
         private static final int PERMISSIONS_REQUEST_CODE = 100;
         boolean needRequest = false;
 
-        // 앱을 실행하기 위해 필요한 퍼미션을 정의합니다.
+        // 앱을 실행하기 위해 필요한 퍼미션을 정의
         String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};  // 외부 저장소
 
         Location mCurrentLocatiion;
         LatLng currentPosition;
-        
+
         private FusedLocationProviderClient mFusedLocationClient;
         private LocationRequest locationRequest;
         private Location location;
 
-        String baseUrl = "http://api.odcloud.kr/api";
-        String API_KEY = "v7id8pbiCwJ3BOi0wTU1To+FpDXNHgLa4nZUMTyssCRebL2tfI5BLAryoc9zW++ONN1NVj5rDya8l+mbov8QJg==";
-        Retrofit retrofit;
 
         private void setLocationRequest(){
                 locationRequest = new LocationRequest()
@@ -115,44 +113,44 @@ private MapView googlemap = null;
 
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.frag_map, container, false);
-        setLocationRequest();
+                view = inflater.inflate(R.layout.frag_map, container, false);
+                setLocationRequest();
 
-        //MapView 호출
-        googlemap = (MapView) view.findViewById(R.id.map);
-        googlemap.onCreate(savedInstanceState);
-        googlemap.getMapAsync(this);
+                //MapView 호출
+                googlemap = (MapView) view.findViewById(R.id.map);
+                googlemap.onCreate(savedInstanceState);
+                googlemap.getMapAsync(this);
 
-        return view;
+                return view;
         }
         //이 메서드가 없으면 지도 출력 x
 
         @Override
         public void onStart() {
-        super.onStart();
-        googlemap.onStart();
-        Log.d(TAG, "onStart");
+                super.onStart();
+                googlemap.onStart();
+                Log.d(TAG, "onStart");
 
-        if (checkPermission()) {
+                if (checkPermission()) {
 
-                Log.d(TAG, "onStart : call mFusedLocationClient.requestLocationUpdates");
-                mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+                        Log.d(TAG, "onStart : call mFusedLocationClient.requestLocationUpdates");
+                        mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
 
-                if (mMap!=null)
-                        mMap.setMyLocationEnabled(true);
+                        if (mMap!=null)
+                                mMap.setMyLocationEnabled(true);
 
-        }
+                }
         }
 
         @Override
         public void onStop () {
-        super.onStop();
-        googlemap.onStop();
-        if (mFusedLocationClient != null) {
+                super.onStop();
+                googlemap.onStop();
+                if (mFusedLocationClient != null) {
 
-                Log.d(TAG, "onStop : call stopLocationUpdates");
-                mFusedLocationClient.removeLocationUpdates(locationCallback);
-        }
+                        Log.d(TAG, "onStop : call stopLocationUpdates");
+                        mFusedLocationClient.removeLocationUpdates(locationCallback);
+                }
         }
 
         public String getCurrentAddress(LatLng latlng) {
@@ -222,84 +220,84 @@ private MapView googlemap = null;
 
         @Override
         public void onSaveInstanceState (@Nullable Bundle outState){
-        super.onSaveInstanceState(outState);
-        googlemap.onSaveInstanceState(outState);
+                super.onSaveInstanceState(outState);
+                googlemap.onSaveInstanceState(outState);
         }
 
         @Override
         public void onResume() {
-        super.onResume();
-        googlemap.onResume();
-}
+                super.onResume();
+                googlemap.onResume();
+        }
 
 
         @Override
         public void onDestroy() {
-        super.onDestroy();
-        googlemap.onLowMemory();
+                super.onDestroy();
+                googlemap.onLowMemory();
         }
 
         //맵뷰 설정
         @Override
         public void onMapReady(GoogleMap googleMap) {
-        Log.d(TAG, "onMapReady: ");
-        mMap = googleMap;
-        setDefaultLocation(googleMap);
+                Log.d(TAG, "onMapReady: ");
+                mMap = googleMap;
+                setDefaultLocation(googleMap);
 
-        //런타임 퍼미션 처리
-        // 1. 위치 퍼미션을 가지고 있는지 체크합니다.
-        int hasFineLocationPermission = ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION);
-        int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.ACCESS_COARSE_LOCATION);
+                //런타임 퍼미션 처리
+                // 1. 위치 퍼미션을 가지고 있는지 체크
+                int hasFineLocationPermission = ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION);
+                int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.ACCESS_COARSE_LOCATION);
 
-        if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
-                hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED   ) {
+                if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
+                        hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED   ) {
 
-                // 2. 이미 퍼미션을 가지고 있다면
-                // ( 안드로이드 6.0 이하 버전은 런타임 퍼미션이 필요없기 때문에 이미 허용된 걸로 인식합니다.)
-
-
-                startLocationUpdates(); // 3. 위치 업데이트 시작
+                        // 2. 이미 퍼미션을 가지고 있다면
+                        // ( 안드로이드 6.0 이하 버전은 런타임 퍼미션이 필요없기 때문에 이미 허용된 걸로 인식.)
 
 
-        }else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요합니다. 2가지 경우(3-1, 4-1)가 있습니다.
-
-                // 3-1. 사용자가 퍼미션 거부를 한 적이 있는 경우에는
-                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), REQUIRED_PERMISSIONS[0])) {
-
-                        // 3-2. 요청을 진행하기 전에 사용자가에게 퍼미션이 필요한 이유를 설명해줄 필요가 있습니다.
-                        Snackbar.make(view,"이 앱을 실행하려면 위치 접근 권한이 필요합니다.",
-                                Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
-
-                                @Override
-                                public void onClick(View view) {
-
-                                        // 3-3. 사용자게에 퍼미션 요청을 합니다. 요청 결과는 onRequestPermissionResult에서 수신됩니다.
-                                        ActivityCompat.requestPermissions( getActivity(), REQUIRED_PERMISSIONS,
-                                                PERMISSIONS_REQUEST_CODE);
-                                }
-                        }).show();
+                        startLocationUpdates(); // 3. 위치 업데이트 시작
 
 
-                } else {
-                        // 4-1. 사용자가 퍼미션 거부를 한 적이 없는 경우에는 퍼미션 요청을 바로 합니다.
-                        // 요청 결과는 onRequestPermissionResult에서 수신됩니다.
-                        ActivityCompat.requestPermissions( getActivity(), REQUIRED_PERMISSIONS,
-                                PERMISSIONS_REQUEST_CODE);
+                }else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요
+
+                        // 3-1. 사용자가 퍼미션 거부를 한 적이 있는 경우에는
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), REQUIRED_PERMISSIONS[0])) {
+
+                                // 3-2. 요청을 진행하기 전에 사용자가에게 퍼미션이 필요한 이유를 설명해줌
+                                Snackbar.make(view,"이 앱을 실행하려면 위치 접근 권한이 필요합니다.",
+                                        Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View view) {
+
+                                                // 3-3. 사용자게에 퍼미션 요청을 합니다. 요청 결과는 onRequestPermissionResult에서 수신
+                                                ActivityCompat.requestPermissions( getActivity(), REQUIRED_PERMISSIONS,
+                                                        PERMISSIONS_REQUEST_CODE);
+                                        }
+                                }).show();
+
+
+                        } else {
+                                // 4-1. 사용자가 퍼미션 거부를 한 적이 없는 경우에는 퍼미션 요청
+                                // 요청 결과는 onRequestPermissionResult에서 수신
+                                ActivityCompat.requestPermissions( getActivity(), REQUIRED_PERMISSIONS,
+                                        PERMISSIONS_REQUEST_CODE);
+                        }
+
                 }
-
-        }
-        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+                mMap.getUiSettings().setMyLocationButtonEnabled(true);
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
-                @Override
-                public void onMapClick(LatLng latLng) {
+                        @Override
+                        public void onMapClick(LatLng latLng) {
 
-                        Log.d( TAG, "onMapClick :");
-                }
-        });
+                                Log.d( TAG, "onMapClick :");
+                        }
+                });
         }
         LocationCallback locationCallback = new LocationCallback() {
                 @Override
@@ -365,27 +363,27 @@ private MapView googlemap = null;
         }
 
 
-public void setDefaultLocation(GoogleMap googleMap){
-        //마커찍기(위도,경도)
-        LatLng DEFAULT_LOCATION = new LatLng(37.40387620799947, 126.93031303076037);
+        public void setDefaultLocation(GoogleMap googleMap){
+                //마커찍기(위도,경도)
+                LatLng DEFAULT_LOCATION = new LatLng(37.40387620799947, 126.93031303076037);
 
-        //마커 옵션
+                //마커 옵션
 
-        String markerTitle = "위치정보 가져올 수 없음";
-        String markerSnippet = "위치권한과 gps 활성여부 확인";
+                String markerTitle = "위치정보 가져올 수 없음";
+                String markerSnippet = "위치권한과 gps 활성여부 확인";
 
-        if (currentMarker != null) currentMarker.remove();
+                if (currentMarker != null) currentMarker.remove();
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(DEFAULT_LOCATION);
-        markerOptions.title(markerTitle);
-        markerOptions.snippet(markerSnippet);
-        markerOptions.draggable(true);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        currentMarker = googleMap.addMarker(markerOptions);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(DEFAULT_LOCATION);
+                markerOptions.title(markerTitle);
+                markerOptions.snippet(markerSnippet);
+                markerOptions.draggable(true);
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                currentMarker = googleMap.addMarker(markerOptions);
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 15);
-        googleMap.moveCamera(cameraUpdate);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 15);
+                googleMap.moveCamera(cameraUpdate);
 
         }
         //여기부터는 런타임 퍼미션 처리을 위한 메소드들
@@ -410,7 +408,7 @@ public void setDefaultLocation(GoogleMap googleMap){
 
 
         /*
-         * ActivityCompat.requestPermissions를 사용한 퍼미션 요청의 결과를 리턴받는 메소드입니다.
+         * ActivityCompat.requestPermissions를 사용한 퍼미션 요청의 결과를 리턴받는 메소드
          */
         @Override
         public void onRequestPermissionsResult(int permsRequestCode,
@@ -424,7 +422,7 @@ public void setDefaultLocation(GoogleMap googleMap){
                         boolean check_result = true;
 
 
-                        // 모든 퍼미션을 허용했는지 체크합니다.
+                        // 모든 퍼미션을 허용했는지 체크
 
                         for (int result : grandResults) {
                                 if (result != PackageManager.PERMISSION_GRANTED) {
@@ -436,17 +434,17 @@ public void setDefaultLocation(GoogleMap googleMap){
 
                         if ( check_result ) {
 
-                                // 퍼미션을 허용했다면 위치 업데이트를 시작합니다.
+                                // 퍼미션을 허용했다면 위치 업데이트를 시작
                                 startLocationUpdates();
                         }
                         else {
-                                // 거부한 퍼미션이 있다면 앱을 사용할 수 없는 이유를 설명해주고 앱을 종료합니다.2 가지 경우가 있습니다.
+                                // 거부한 퍼미션이 있다면 앱을 사용할 수 없는 이유를 설명해주고 앱을 종료
 
                                 if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), REQUIRED_PERMISSIONS[0])
                                         || ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), REQUIRED_PERMISSIONS[1])) {
 
 
-                                        // 사용자가 거부만 선택한 경우에는 앱을 다시 실행하여 허용을 선택하면 앱을 사용할 수 있습니다.
+                                        // 사용자가 거부만 선택한 경우에는 앱을 다시 실행하여 허용을 선택하면 앱을 사용할 수 있음
                                         Snackbar.make(view, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요. ",
                                                 Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
 
@@ -460,7 +458,7 @@ public void setDefaultLocation(GoogleMap googleMap){
                                 }else {
 
 
-                                        // "다시 묻지 않음"을 사용자가 체크하고 거부를 선택한 경우에는 설정(앱 정보)에서 퍼미션을 허용해야 앱을 사용할 수 있습니다.
+                                        // "다시 묻지 않음"을 사용자가 체크하고 거부를 선택한 경우에는 설정(앱 정보)에서 퍼미션을 허용해야 앱을 사용할 수 있음
                                         Snackbar.make(view, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ",
                                                 Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
 

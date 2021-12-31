@@ -50,7 +50,7 @@ public class F_mainAct extends Fragment {
 
     @Override
     public View onCreateView(@NonNull  LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.frag_main,container,false);
+        view = inflater.inflate(R.layout.frag_main,container,false);
 
         search_view = view.findViewById(R.id.search_view);
         search_view.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,7 @@ public class F_mainAct extends Fragment {
         return view;
     }
 
+    //Banner1Adapter 를 연결해주고 viewpager2를 이용한 transform 구성
     private void setBanner1(){
         banner1 = view.findViewById(R.id.banner1);
         List<Banner1_items>sliderItems = new ArrayList<>();
@@ -104,15 +105,15 @@ public class F_mainAct extends Fragment {
 
 
 
-   Runnable sliderRunnable = new Runnable () {
-        @Override
-        public void run () {
-            banner1.setCurrentItem (banner1.getCurrentItem () + 1 ) ;
-        }
-    } ;
+        Runnable sliderRunnable = new Runnable () {
+            @Override
+            public void run () {
+                banner1.setCurrentItem (banner1.getCurrentItem () + 1 ) ;
+            }
+        } ;
 
     }
-
+    //Banner2Adapter 를 연결해주고 viewpager2를 이용한 transform 구성
     private void setBanner2(){
         banner2 = view.findViewById(R.id.banner2);
         List<Banner2_items>sliderItems = new ArrayList<>();
@@ -149,6 +150,7 @@ public class F_mainAct extends Fragment {
         } ;
 
     }
+    //recycler gridView를 이용한 메뉴선택부 구현
     private void setCategory(){
         categoryView = (RecyclerView)view.findViewById(R.id.category);
         ArrayList<Category_items> category_items = new ArrayList<>();
@@ -177,7 +179,7 @@ public class F_mainAct extends Fragment {
 
 
 
-    }
+}
 
 
 

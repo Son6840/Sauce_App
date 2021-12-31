@@ -9,6 +9,6 @@ public class KakaoApplication extends Application {
     public void onCreate() { // oncreate 에서 카카오 sdk api 를 호출해서 초기화
         super.onCreate();
 
-        KakaoSdk.init(this, "68f5d7c8e5adbdb43b33e5fdfc5afb8d");
+        KakaoSdk.init(this, "");
     }
 }

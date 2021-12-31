@@ -45,13 +45,13 @@ public class writeReviewActivity {
     // 호출할 다이얼로그 함수를 정의한다.
     public void callFunction(final TextView review_msg) {
 
-        // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
+        //  Dialog클래스를 생성
         Dialog dlg = new Dialog(context);
 
-        // 액티비티의 타이틀바를 숨긴다.
+        // 액티비티의 타이틀바를 숨김.
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        // 커스텀 다이얼로그의 레이아웃을 설정한다.
+        // 커스텀 다이얼로그의 레이아웃을 설정
         dlg.setContentView(R.layout.activity_write_review);
 
 //        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
@@ -68,7 +68,7 @@ public class writeReviewActivity {
         dlg.show();
 
 
-        // 커스텀 다이얼로그의 각 위젯들을 정의한다.
+        // 커스텀 다이얼로그의 각 위젯들을 정의
         final EditText message = (EditText) dlg.findViewById(R.id.review_msg);
         final Button okButton = (Button) dlg.findViewById(R.id.okButton);
         final Button cancelButton = (Button) dlg.findViewById(R.id.cancelButton);
@@ -78,7 +78,7 @@ public class writeReviewActivity {
             @Override
             public void onClick(View view) {
                 // '확인' 버튼 클릭시 메인 액티비티에서 설정한 main_label에
-                // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
+                // 커스텀 다이얼로그에서 입력한 메시지를 대입
 //                review_msg.setText(message.getText().toString());
                 Toast.makeText(context, "\"" + message.getText().toString() + "\" 을 입력하였습니다.", Toast.LENGTH_SHORT).show();
 

@@ -34,18 +34,15 @@ public interface RetrofitInterface {
     Call<mypageinfo> getUserInfo(@Query("email") String email,
                                  @Query("id") String id,
                                  @Query("phonenumber") String pn,
-                                @Query("nickname") String nk);
+                                 @Query("nickname") String nk);
     @GET("/storelist")
-    Call<List<storeInfo>> getStoreList(@Query("cate") String cate);
+    Call<storeInfo> getStoreList(@Query("cate") String cate);
 
     @FormUrlEncoded
     @POST("/add/review")
     Call<Message> sendrev(@Field("userid") String userid,
                           @Field("storeid") String storeid,
                           @Field("comment") String comment);
-    @POST("/updateuser")
-    Call<Message> sendmod(@Field("email") String email,
-                          @Field("name") String id,
-                          @Field("birth") String birth);
+
 
 }
